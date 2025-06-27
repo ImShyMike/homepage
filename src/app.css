@@ -1,0 +1,104 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+/* Catppuccin theme */
+@import '$static/css/variants.css';
+@import '$static/css/catpuccin.css';
+
+/* Theme transitions (avoid flashbanging the user) */
+*,
+*::before,
+*::after {
+	transition: 
+		background-color 300ms ease-in-out,
+		color 300ms ease-in-out,
+		border-color 300ms ease-in-out,
+		box-shadow 300ms ease-in-out,
+		fill 300ms ease-in-out,
+		stroke 300ms ease-in-out;
+}
+
+:root {
+	transition: 
+		background-color 300ms ease-in-out,
+		color 300ms ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after,
+	:root {
+		transition: none !important;
+	}
+}
+
+/* Fonts */
+@font-face {
+	font-family: 'Inter';
+	src:
+		url('https://fonts.bunny.net/inter/files/inter-latin-400-normal.woff') format('woff'),
+		url('https://fonts.bunny.net/inter/files/inter-latin-400-normal.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Fira Code';
+	src:
+		url('https://fonts.bunny.net/fira-code/files/fira-code-latin-400-normal.woff') format('woff'),
+		url('https://fonts.bunny.net/fira-code/files/fira-code-latin-400-normal.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* Base global styles */
+@layer base {
+	body {
+		@apply bg-ctp-base text-ctp-text font-sans antialiased;
+		font-family: 'Inter', sans-serif;
+	}
+	a {
+		@apply text-ctp-blue hover:text-ctp-sapphire;
+		text-decoration: none;
+	}
+	a:hover {
+		@apply underline;
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply text-ctp-text font-bold;
+	}
+	p {
+		@apply text-ctp-text;
+	}
+	code {
+		@apply bg-ctp-surface1 text-ctp-text font-mono;
+		font-family: 'Fira Code', monospace;
+	}
+	pre {
+		@apply bg-ctp-surface1 text-ctp-text overflow-x-auto rounded-lg p-4;
+		font-family: 'Fira Code', monospace;
+	}
+	img {
+		@apply h-auto max-w-full;
+	}
+	button {
+		@apply bg-ctp-surface0 text-ctp-text hover:bg-ctp-surface1 rounded-lg px-4 py-2 transition-colors;
+	}
+	input,
+	textarea {
+		@apply bg-ctp-surface0 text-ctp-text border-ctp-surface1 rounded-lg border px-3 py-2;
+	}
+	input:focus,
+	textarea:focus {
+		@apply border-ctp-blue;
+	}
+}

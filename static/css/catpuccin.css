@@ -1,0 +1,320 @@
+@custom-variant theme-latte ([data-theme="latte"] &);
+@custom-variant theme-frappe ([data-theme="frappe"] &);
+@custom-variant theme-macchiato ([data-theme="macchiato"] &);
+@custom-variant theme-mocha ([data-theme="mocha"] &);
+
+@utility bg-ctp-rosewater {
+	background-color: var(--rosewater);
+}
+@utility bg-ctp-flamingo {
+	background-color: var(--flamingo);
+}
+@utility bg-ctp-pink {
+	background-color: var(--pink);
+}
+@utility bg-ctp-mauve {
+	background-color: var(--mauve);
+}
+@utility bg-ctp-red {
+	background-color: var(--red);
+}
+@utility bg-ctp-maroon {
+	background-color: var(--maroon);
+}
+@utility bg-ctp-peach {
+	background-color: var(--peach);
+}
+@utility bg-ctp-yellow {
+	background-color: var(--yellow);
+}
+@utility bg-ctp-green {
+	background-color: var(--green);
+}
+@utility bg-ctp-teal {
+	background-color: var(--teal);
+}
+@utility bg-ctp-sky {
+	background-color: var(--sky);
+}
+@utility bg-ctp-sapphire {
+	background-color: var(--sapphire);
+}
+@utility bg-ctp-blue {
+	background-color: var(--blue);
+}
+@utility bg-ctp-lavender {
+	background-color: var(--lavender);
+}
+@utility bg-ctp-text {
+	background-color: var(--text);
+}
+@utility bg-ctp-subtext1 {
+	background-color: var(--subtext1);
+}
+@utility bg-ctp-subtext0 {
+	background-color: var(--subtext0);
+}
+@utility bg-ctp-overlay2 {
+	background-color: var(--overlay2);
+}
+@utility bg-ctp-overlay1 {
+	background-color: var(--overlay1);
+}
+@utility bg-ctp-overlay0 {
+	background-color: var(--overlay0);
+}
+@utility bg-ctp-surface2 {
+	background-color: var(--surface2);
+}
+@utility bg-ctp-surface1 {
+	background-color: var(--surface1);
+}
+@utility bg-ctp-surface0 {
+	background-color: var(--surface0);
+}
+@utility bg-ctp-base {
+	background-color: var(--base);
+}
+@utility bg-ctp-mantle {
+	background-color: var(--mantle);
+}
+@utility bg-ctp-crust {
+	background-color: var(--crust);
+}
+
+@utility text-ctp-rosewater {
+	color: var(--rosewater);
+}
+@utility text-ctp-flamingo {
+	color: var(--flamingo);
+}
+@utility text-ctp-pink {
+	color: var(--pink);
+}
+@utility text-ctp-mauve {
+	color: var(--mauve);
+}
+@utility text-ctp-red {
+	color: var(--red);
+}
+@utility text-ctp-maroon {
+	color: var(--maroon);
+}
+@utility text-ctp-peach {
+	color: var(--peach);
+}
+@utility text-ctp-yellow {
+	color: var(--yellow);
+}
+@utility text-ctp-green {
+	color: var(--green);
+}
+@utility text-ctp-teal {
+	color: var(--teal);
+}
+@utility text-ctp-sky {
+	color: var(--sky);
+}
+@utility text-ctp-sapphire {
+	color: var(--sapphire);
+}
+@utility text-ctp-blue {
+	color: var(--blue);
+}
+@utility text-ctp-lavender {
+	color: var(--lavender);
+}
+@utility text-ctp-text {
+	color: var(--text);
+}
+@utility text-ctp-subtext1 {
+	color: var(--subtext1);
+}
+@utility text-ctp-subtext0 {
+	color: var(--subtext0);
+}
+@utility text-ctp-overlay2 {
+	color: var(--overlay2);
+}
+@utility text-ctp-overlay1 {
+	color: var(--overlay1);
+}
+@utility text-ctp-overlay0 {
+	color: var(--overlay0);
+}
+@utility text-ctp-surface2 {
+	color: var(--surface2);
+}
+@utility text-ctp-surface1 {
+	color: var(--surface1);
+}
+@utility text-ctp-surface0 {
+	color: var(--surface0);
+}
+@utility text-ctp-base {
+	color: var(--base);
+}
+@utility text-ctp-mantle {
+	color: var(--mantle);
+}
+@utility text-ctp-crust {
+	color: var(--crust);
+}
+
+@utility border-ctp-rosewater {
+	border-color: var(--rosewater);
+}
+@utility border-ctp-flamingo {
+	border-color: var(--flamingo);
+}
+@utility border-ctp-pink {
+	border-color: var(--pink);
+}
+@utility border-ctp-mauve {
+	border-color: var(--mauve);
+}
+@utility border-ctp-red {
+	border-color: var(--red);
+}
+@utility border-ctp-maroon {
+	border-color: var(--maroon);
+}
+@utility border-ctp-peach {
+	border-color: var(--peach);
+}
+@utility border-ctp-yellow {
+	border-color: var(--yellow);
+}
+@utility border-ctp-green {
+	border-color: var(--green);
+}
+@utility border-ctp-teal {
+	border-color: var(--teal);
+}
+@utility border-ctp-sky {
+	border-color: var(--sky);
+}
+@utility border-ctp-sapphire {
+	border-color: var(--sapphire);
+}
+@utility border-ctp-blue {
+	border-color: var(--blue);
+}
+@utility border-ctp-lavender {
+	border-color: var(--lavender);
+}
+@utility border-ctp-text {
+	border-color: var(--text);
+}
+@utility border-ctp-subtext1 {
+	border-color: var(--subtext1);
+}
+@utility border-ctp-subtext0 {
+	border-color: var(--subtext0);
+}
+@utility border-ctp-overlay2 {
+	border-color: var(--overlay2);
+}
+@utility border-ctp-overlay1 {
+	border-color: var(--overlay1);
+}
+@utility border-ctp-overlay0 {
+	border-color: var(--overlay0);
+}
+@utility border-ctp-surface2 {
+	border-color: var(--surface2);
+}
+@utility border-ctp-surface1 {
+	border-color: var(--surface1);
+}
+@utility border-ctp-surface0 {
+	border-color: var(--surface0);
+}
+@utility border-ctp-base {
+	border-color: var(--base);
+}
+@utility border-ctp-mantle {
+	border-color: var(--mantle);
+}
+@utility border-ctp-crust {
+	border-color: var(--crust);
+}
+
+@utility ring-ctp-rosewater {
+	--tw-ring-color: var(--rosewater);
+}
+@utility ring-ctp-flamingo {
+	--tw-ring-color: var(--flamingo);
+}
+@utility ring-ctp-pink {
+	--tw-ring-color: var(--pink);
+}
+@utility ring-ctp-mauve {
+	--tw-ring-color: var(--mauve);
+}
+@utility ring-ctp-red {
+	--tw-ring-color: var(--red);
+}
+@utility ring-ctp-maroon {
+	--tw-ring-color: var(--maroon);
+}
+@utility ring-ctp-peach {
+	--tw-ring-color: var(--peach);
+}
+@utility ring-ctp-yellow {
+	--tw-ring-color: var(--yellow);
+}
+@utility ring-ctp-green {
+	--tw-ring-color: var(--green);
+}
+@utility ring-ctp-teal {
+	--tw-ring-color: var(--teal);
+}
+@utility ring-ctp-sky {
+	--tw-ring-color: var(--sky);
+}
+@utility ring-ctp-sapphire {
+	--tw-ring-color: var(--sapphire);
+}
+@utility ring-ctp-blue {
+	--tw-ring-color: var(--blue);
+}
+@utility ring-ctp-lavender {
+	--tw-ring-color: var(--lavender);
+}
+@utility ring-ctp-text {
+	--tw-ring-color: var(--text);
+}
+@utility ring-ctp-subtext1 {
+	--tw-ring-color: var(--subtext1);
+}
+@utility ring-ctp-subtext0 {
+	--tw-ring-color: var(--subtext0);
+}
+@utility ring-ctp-overlay2 {
+	--tw-ring-color: var(--overlay2);
+}
+@utility ring-ctp-overlay1 {
+	--tw-ring-color: var(--overlay1);
+}
+@utility ring-ctp-overlay0 {
+	--tw-ring-color: var(--overlay0);
+}
+@utility ring-ctp-surface2 {
+	--tw-ring-color: var(--surface2);
+}
+@utility ring-ctp-surface1 {
+	--tw-ring-color: var(--surface1);
+}
+@utility ring-ctp-surface0 {
+	--tw-ring-color: var(--surface0);
+}
+@utility ring-ctp-base {
+	--tw-ring-color: var(--base);
+}
+@utility ring-ctp-mantle {
+	--tw-ring-color: var(--mantle);
+}
+@utility ring-ctp-crust {
+	--tw-ring-color: var(--crust);
+}
