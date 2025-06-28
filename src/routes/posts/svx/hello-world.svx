@@ -1,0 +1,12 @@
+---
+title: "Hello World"
+date: "2025-06-28"
+description: "My first static post with mdsvex"
+tags:
+  - mdsvex
+  - sveltekit
+---
+
+## Hello!
+
+Welcome to my **static** blog powered by mdsvex and TypeScript!

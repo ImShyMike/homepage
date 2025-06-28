@@ -1,0 +1,22 @@
+---
+title: "Hello World but very long and cool"
+date: "2025-06-29"
+description: "Big stuff test"
+tags:
+  - mdsvex
+  - big
+---
+
+## Hugeeeeeee!
+
+Testing stuff :D
+
+Also, here's a button:
+
+<script>
+	let counter = 0;
+</script>
+
+<button onclick={() => counter++}>
+    Click me! {counter}
+</button>

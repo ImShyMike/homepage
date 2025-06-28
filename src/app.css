@@ -6,6 +6,9 @@
 @import '$static/css/variants.css';
 @import '$static/css/catpuccin.css';
 
+/* Custom classes */
+@import '$static/css/classes.css';
+
 /* Theme transitions (avoid flashbanging the user) */
 *,
 *::before,
@@ -62,7 +65,7 @@
 		font-family: 'Inter', sans-serif;
 	}
 	a {
-		@apply text-ctp-blue hover:text-ctp-sapphire;
+		@apply text-ctp-accent;
 		text-decoration: none;
 		position: relative;
 		display: inline-block;
@@ -79,11 +82,11 @@
 		@apply text-ctp-text;
 	}
 	code {
-		@apply bg-ctp-surface1 text-ctp-text font-mono;
+		@apply bg-ctp-surface0 text-ctp-text font-mono pr-0.5 pl-0.5 rounded;
 		font-family: 'Fira Code', monospace;
 	}
 	pre {
-		@apply bg-ctp-surface1 text-ctp-text overflow-x-auto rounded-lg p-4;
+		@apply bg-ctp-surface0 text-ctp-text overflow-x-auto rounded-lg p-4;
 		font-family: 'Fira Code', monospace;
 	}
 	img {
