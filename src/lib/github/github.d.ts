@@ -97,6 +97,7 @@ export interface GitHubRepo {
 	open_issues: number;
 	watchers: number;
 	default_branch: string;
+	topics: string[];
 }
 
 export type GitHubRepoList = GitHubRepo[];
