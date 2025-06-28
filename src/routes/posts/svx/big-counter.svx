@@ -18,5 +18,7 @@ Also, here's a button:
 </script>
 
 <button onclick={() => counter++}>
-    Click me! {counter}
+    Click me!
 </button>
+
+Counter: {counter}

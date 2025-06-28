@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { getRepos, gitHubUsername, gitHubRepo } from '$lib';
+	import { GithubData, getRepos } from '$lib';
 	import type { GitHubRepoList } from '$lib';
 
 	import ErrorIcon from 'virtual:icons/mdi/error.svg';
@@ -14,8 +14,8 @@
 	onMount(async () => {
 		try {
 			loading = true;
-			repos = (await getRepos(gitHubUsername))
-				.filter((repo) => !repo.fork && repo.name !== gitHubRepo && repo.description)
+			repos = (await getRepos(GithubData.name))
+				.filter((repo) => !repo.fork && repo.name !== GithubData.repo && repo.description)
 				.sort((a, b) => {
 					return a.stargazers_count < b.stargazers_count ? 1 : -1;
 				})

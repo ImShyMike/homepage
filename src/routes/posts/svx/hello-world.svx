@@ -9,4 +9,4 @@ tags:
 
 ## Hello!
 
-Welcome to my **static** blog powered by mdsvex and TypeScript!
+Welcome to my ~~dynamic~~ **static** blog powered by mdsvex and TypeScript!

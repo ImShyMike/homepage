@@ -1,0 +1,96 @@
+---
+title: "Styling Test"
+date: "2025-06-28"
+description: "All prose styles to check if stuff is working"
+tags:
+  - prose
+  - styling
+---
+
+# Main Heading (H1)
+
+This is a comprehensive test of all the custom prose styling elements in our PostLayout component.
+
+## Subheading (H2)
+
+### Smaller Heading (H3)
+
+#### Even Smaller (H4)
+
+##### Tiny Heading (H5)
+
+###### Smallest Heading (H6)
+
+## Text Formatting
+
+This is a regular paragraph with **bold text** and *italic text*. You can also use __strong text__ and _emphasized text_.
+
+Here's some `inline code` that should have a green color and background.
+
+This paragraph contains ~~strikethrough text~~ and <mark>highlighted text</mark>.
+
+Here's some <small>small text</small> and regular text with <sup>superscript</sup> and <sub>subscript</sub>.
+
+## Links and Interactive Elements
+
+Check out this [example link](https://example.com) that should change color on hover.
+
+Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy, or <kbd>Cmd</kbd> + <kbd>V</kbd> to paste.
+
+This is an <abbr title="Abbreviation">abbr</abbr> element with a dotted underline.
+
+## Code Blocks
+
+Here's a code block:
+
+```javascript
+function testFunction() {
+    console.log("This should have proper background and border styling");
+    return "Hello, world!";
+}
+```
+
+```python
+def another_test():
+    """This is a Python code block"""
+    return "Testing code highlighting"
+```
+
+## Blockquotes
+
+> This is a blockquote that should have a colored left border and background.
+> It can span multiple lines and should maintain consistent styling.
+> 
+> > This is a nested blockquote to test deeper levels.
+
+## Lists
+
+### Unordered List
+- First item with **bold text**
+- Second item with *italic text*
+- Third item with `inline code`
+- Fourth item with [a link](https://example.com)
+
+### Ordered List
+1. First numbered item
+2. Second item with ~~strikethrough~~
+3. Third item with <mark>highlighted text</mark>
+4. Fourth item with <kbd>keyboard shortcuts</kbd>
+
+## Mixed Content
+
+This paragraph tests multiple elements together: **bold text** with *italics*, some `inline code`, a [test link](https://example.com), ~~deleted text~~, <mark>highlighted content</mark>, and <small>small text</small>.
+
+### Mathematical Expressions
+
+Here's a formula: E = mc<sup>2</sup>
+
+Chemical formula: H<sub>2</sub>O
+
+## Tables
+
+| Column 1 | Column 2 | Column 3 |
+|----------|----------|----------|
+| **Bold** | *Italic* | `Code` |
+| [Link](https://example.com) | ~~Strike~~ | <mark>Highlight</mark> |
+| Normal text | <small>Small</small> | <kbd>Key</kbd> |

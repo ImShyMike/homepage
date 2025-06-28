@@ -10,7 +10,7 @@
 			<p class="text-ctp-subtext1">No posts available.</p>
 		{/if}
 		{#each data.posts as { meta, slug } (slug)}
-			<a class="hover-text-glow block w-full max-w-2xl" href={`/posts/${slug}`}>
+			<a class="hover-text-glow block w-full max-w-3xl min-w-2xl" href={`/posts/${slug}`}>
 				<div
 					class="box small-box-glow border-ctp-surface1 hover:border-ctp-accent group smooth-border-transition flex w-full flex-col rounded-lg border p-4"
 				>

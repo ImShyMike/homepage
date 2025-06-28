@@ -35,7 +35,7 @@
 <Switcher
 	bind:isOpen
 	disabled={isTransitioning}
-	buttonClass="bg-ctp-mantle text-ctp-text hover:bg-ctp-surface0 flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium {isTransitioning
+	buttonClass="bg-transparent text-ctp-text hover:bg-ctp-surface0 flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium {isTransitioning
 		? 'opacity-75'
 		: ''}"
 	dropdownClass="w-48"

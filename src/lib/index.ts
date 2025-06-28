@@ -1,6 +1,15 @@
-// place files you want to import through the `$lib` alias in this folder.
-export const gitHubUsername = 'ImShyMike';
-export const gitHubRepo = 'homepage';
+// General variables
+export const GithubData = {
+	name: 'ImShyMike',
+	repo: 'homepage'
+};
+
+export const WebsiteData = {
+	name: 'ShyMike',
+	description: 'My small little homepage',
+	url: 'https://imshymike.github.io',
+	tags: ['homepage', 'personal', 'blog']
+};
 
 // Github
 export { getRepos, languageColors } from './github/github';

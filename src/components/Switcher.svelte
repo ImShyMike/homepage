@@ -55,7 +55,7 @@
 <div class="switcher-container {containerClass}">
 	<button
 		onclick={toggleDropdown}
-		class="transition-colors focus:outline-none {buttonClass}"
+		class="cursor-pointer transition-colors focus:outline-none {buttonClass}"
 		aria-expanded={isOpen}
 		aria-haspopup="true"
 		aria-label={ariaLabel}

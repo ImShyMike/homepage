@@ -9,6 +9,9 @@
 /* Custom classes */
 @import '$static/css/classes.css';
 
+/* Prism.js syntax highlighting */
+@import '$static/css/prism-theme.css';
+
 /* Theme transitions (avoid flashbanging the user) */
 *,
 *::before,
