@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 npm run format
+git add .
 
 exit 0
