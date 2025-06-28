@@ -7,7 +7,7 @@ export const GithubData = {
 export const WebsiteData = {
 	name: 'ShyMike',
 	description: 'My small little homepage',
-	url: 'https://imshymike.github.io',
+	url: 'https://shymike.dev',
 	tags: ['homepage', 'personal', 'blog']
 };
 

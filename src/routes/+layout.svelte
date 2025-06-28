@@ -21,7 +21,7 @@
 		return () => window.removeEventListener('scroll', handleScroll);
 	});
 
-	let title = $derived(['~', WebsiteData.name, ...page.url.pathname.split('/').slice(1)].join('/'));
+	let title = $derived(['~', ...page.url.pathname.split('/').slice(1)].join('/'));
 </script>
 
 <svelte:head>

@@ -2,6 +2,9 @@ import { writable } from 'svelte/store';
 import { browser } from '$app/environment';
 import type { CatppuccinTheme } from '$lib';
 
+const defaultTheme: CatppuccinTheme = 'mocha';
+const defaultAccent: string = 'mauve';
+
 export const themes: Record<CatppuccinTheme, { name: string; emoji: string }> = {
 	latte: { name: 'Latte', emoji: '☀️' },
 	frappe: { name: 'Frappé', emoji: '🌅' },
@@ -26,118 +29,75 @@ export const accents: string[] = [
 	'lavender'
 ];
 
-function createAccentStore() {
-	const getInitialAccent = (): string => {
-		if (!browser) return 'blue';
-		const stored = localStorage.getItem('accent');
-		return stored && accents.includes(stored) ? stored : 'blue';
+function createStore<T>(key: string, defaultValue: T, validator: (value: unknown) => value is T) {
+	const getInitial = (): T => {
+		if (!browser) return defaultValue;
+		const stored = localStorage.getItem(key);
+		try {
+			return stored && validator(JSON.parse(stored)) ? JSON.parse(stored) : defaultValue;
+		} catch {
+			return defaultValue;
+		}
 	};
 
-	const { subscribe, set, update } = writable<string>(getInitialAccent());
+	const { subscribe, set, update } = writable<T>(getInitial());
 
 	return {
 		subscribe,
-		set: (accent: string) => {
+		set: (value: T) => {
 			if (browser) {
-				localStorage.setItem('accent', accent);
-				document.documentElement.setAttribute('data-accent', accent);
+				localStorage.setItem(key, JSON.stringify(value));
+				document.documentElement.setAttribute(`data-${key}`, String(value));
 			}
-			set(accent);
+			set(value);
 		},
-		update: (fn: (current: string) => string) => {
-			update((current) => {
-				const newAccent = fn(current);
-				if (browser) {
-					if (accents.includes(newAccent)) {
-						localStorage.setItem('accent', newAccent);
-						document.documentElement.style.setProperty('--accent', `var(--${newAccent})`);
-					} else {
-						console.warn(`Invalid accent: ${newAccent}. Using default 'mauve'.`);
-						localStorage.setItem('accent', 'mauve');
-						document.documentElement.style.setProperty('--accent', `var(--mauve)`);
-						return 'mauve';
-					}
-				}
-				return newAccent;
-			});
-		},
+		update,
 		init: () => {
 			if (browser) {
-				const current = getInitialAccent();
-				document.documentElement.setAttribute('data-accent', current);
+				const current = getInitial();
+				document.documentElement.setAttribute(`data-${key}`, String(current));
 				set(current);
 
-				// listen for storage changes from other tabs/windows
 				const handleStorageChange = (e: StorageEvent) => {
-					if (e.key === 'accent' && e.newValue) {
-						const newAccent = e.newValue;
-						if (accents.includes(newAccent)) {
-							document.documentElement.setAttribute('data-accent', newAccent);
-							set(newAccent);
+					if (e.key === key && e.newValue) {
+						try {
+							const newValue = JSON.parse(e.newValue);
+							if (validator(newValue)) {
+								document.documentElement.setAttribute(`data-${key}`, String(newValue));
+								set(newValue);
+							}
+						} catch {
+							// ignore invalid JSON
 						}
 					}
 				};
 
 				window.addEventListener('storage', handleStorageChange);
+
+				return () => window.removeEventListener('storage', handleStorageChange);
 			}
 		}
 	};
 }
 
-function createThemeStore() {
-	const getInitialTheme = (): CatppuccinTheme => {
-		if (!browser) return 'mocha';
-		const stored = localStorage.getItem('theme') as CatppuccinTheme;
-		return stored && Object.keys(themes).includes(stored) ? stored : 'mocha';
-	};
+const isValidTheme = (value: unknown): value is CatppuccinTheme =>
+	typeof value === 'string' && Object.keys(themes).includes(value);
 
-	const { subscribe, set, update } = writable<CatppuccinTheme>(getInitialTheme());
+const isValidAccent = (value: unknown): value is string =>
+	typeof value === 'string' && accents.includes(value);
 
+export const theme = (() => {
+	const store = createStore('theme', defaultTheme, isValidTheme);
 	return {
-		subscribe,
-		set: (theme: CatppuccinTheme) => {
-			if (browser) {
-				localStorage.setItem('theme', theme);
-				document.documentElement.setAttribute('data-theme', theme);
-			}
-			set(theme);
-		},
+		...store,
 		toggle: () => {
-			update((current) => {
+			store.update((current) => {
 				const themeKeys = Object.keys(themes) as CatppuccinTheme[];
 				const currentIndex = themeKeys.indexOf(current);
-				const nextTheme = themeKeys[(currentIndex + 1) % themeKeys.length];
-
-				if (browser) {
-					localStorage.setItem('theme', nextTheme);
-					document.documentElement.setAttribute('data-theme', nextTheme);
-				}
-
-				return nextTheme;
+				return themeKeys[(currentIndex + 1) % themeKeys.length];
 			});
-		},
-		init: () => {
-			if (browser) {
-				const current = getInitialTheme();
-				document.documentElement.setAttribute('data-theme', current);
-				set(current);
-
-				// listen for storage changes from other tabs/windows
-				const handleStorageChange = (e: StorageEvent) => {
-					if (e.key === 'theme' && e.newValue) {
-						const newTheme = e.newValue as CatppuccinTheme;
-						if (Object.keys(themes).includes(newTheme)) {
-							document.documentElement.setAttribute('data-theme', newTheme);
-							set(newTheme);
-						}
-					}
-				};
-
-				window.addEventListener('storage', handleStorageChange);
-			}
 		}
 	};
-}
+})();
 
-export const theme = createThemeStore();
-export const accent = createAccentStore();
+export const accent = createStore('accent', defaultAccent, isValidAccent);

@@ -9,7 +9,25 @@
 	</section>
 
 	<section class="text-center">
-		<p>Testing out new <code>styles</code> and stuff</p>
-		<p>This is a link to <a class="hover-text-glow low-line" href="/posts">Posts</a>!</p>
+		<p>This page is still kinda WIP will finish later D:</p>
+		<p>Until the page is finished, have a cat picture:</p>
+		<img
+			src="https://cataas.com/cat"
+			alt="A cute cat"
+			class="mx-auto mt-4 rounded-lg shadow-lg"
+			width="400"
+			height="400"
+		/>
+		<br />
+		<button
+			onclick={() => {
+				const img = document.querySelector('img');
+				if (img) {
+					img.src = `https://cataas.com/cat?${new Date().getTime()}`;
+				}
+			}}
+		>
+			I want another cat picture!
+		</button>
 	</section>
 </div>
