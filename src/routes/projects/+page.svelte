@@ -18,7 +18,8 @@
 				.filter((repo) => !repo.fork && repo.name !== gitHubRepo && repo.description)
 				.sort((a, b) => {
 					return a.stargazers_count < b.stargazers_count ? 1 : -1;
-				});
+				})
+				.slice(0, 12);
 		} catch (err) {
 			error = err instanceof Error ? err.message : 'An error occurred';
 		} finally {

@@ -27,15 +27,19 @@
 			</p>
 		{/if}
 		{#if repo.topics && repo.topics.length > 0}
-			<div class="mb-3 flex flex-wrap gap-2 max-h-[80px] overflow-y-auto">
+			<div class="mb-3 flex max-h-[80px] flex-wrap gap-2 overflow-y-auto">
 				{#each repo.topics as topic}
-					<span class="bg-ctp-surface1 text-ctp-text rounded-full px-2 py-1 text-xs whitespace-nowrap overflow-hidden text-ellipsis" style="max-width: 150px;" title={topic}>
+					<span
+						class="bg-ctp-surface1 text-ctp-text overflow-hidden rounded-full px-2 py-1 text-xs text-ellipsis whitespace-nowrap"
+						style="max-width: 150px;"
+						title={topic}
+					>
 						{topic.length > 11 ? `${topic.substring(0, 11)}...` : topic}
 					</span>
 				{/each}
 			</div>
 		{/if}
-		<div class="text-ctp-subtext1 flex items-center space-x-4 text-xs mt-auto">
+		<div class="text-ctp-subtext1 mt-auto flex items-center space-x-4 text-xs">
 			{#if repo.language}
 				<span class="flex items-center space-x-1">
 					<div

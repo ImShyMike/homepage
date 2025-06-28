@@ -1,0 +1,9 @@
+.line::after {
+	content: '';
+	transform: translateX(-50%);
+	transition: width 200ms ease-in-out !important;
+	@apply bg-ctp-accent absolute bottom-[-1px] left-1/2 h-[1px] w-0;
+}
+.line:hover::after {
+	width: 100%;
+}

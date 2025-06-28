@@ -6,7 +6,6 @@
 	let isOpen = $state(false);
 	let currentColor = $state('mauve');
 
-	
 	function setAccentColor(colorName: string) {
 		document.documentElement.style.setProperty('--accent', `var(--${colorName})`);
 		accent.set(colorName);
@@ -29,7 +28,7 @@
 
 <Switcher
 	bind:isOpen
-	buttonClass="bg-ctp-surface0 relative flex h-10 w-10 items-center justify-center rounded-full p-0 transition-all duration-200 hover:scale-110"
+	buttonClass="bg-ctp-surface0 relative flex h-8 w-8 items-center justify-center rounded-full p-0 transition-all duration-200 hover:scale-110"
 	dropdownClass="w-48"
 	ariaLabel="Switch accent color"
 >
@@ -41,9 +40,7 @@
 	{/snippet}
 
 	{#snippet dropdown()}
-		<div
-			class="bg-ctp-surface0 flex flex-wrap items-center justify-center rounded-lg p-4 shadow-md"
-		>
+		<div class="bg-ctp-mantle flex flex-wrap items-center justify-center rounded-lg p-4 shadow-md">
 			{#each accents as color}
 				<button
 					class="m-1 h-8 w-8 rounded-full transition-all duration-200 hover:scale-110"

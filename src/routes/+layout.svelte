@@ -12,9 +12,15 @@
 			<div class="flex h-16 items-center justify-between">
 				<div class="flex items-center space-x-6">
 					<nav class="hidden space-x-4 md:flex">
-						<a href="/" class="text-ctp-subtext1 hover:text-ctp-text transition-colors">Home</a>
-						<a href="/projects" class="text-ctp-subtext1 hover:text-ctp-text transition-colors"
-							>Projects</a
+						<a
+							data-sveltekit-preload-data
+							href="/"
+							class="line text-ctp-subtext1 hover:text-ctp-text transition-colors">Home</a
+						>
+						<a
+							data-sveltekit-preload-data
+							href="/projects"
+							class="line text-ctp-subtext1 hover:text-ctp-text transition-colors">Projects</a
 						>
 					</nav>
 				</div>

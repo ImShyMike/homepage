@@ -64,9 +64,8 @@
 	a {
 		@apply text-ctp-blue hover:text-ctp-sapphire;
 		text-decoration: none;
-	}
-	a:hover {
-		@apply underline;
+		position: relative;
+		display: inline-block;
 	}
 	h1,
 	h2,

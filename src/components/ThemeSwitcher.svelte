@@ -35,7 +35,7 @@
 <Switcher
 	bind:isOpen
 	disabled={isTransitioning}
-	buttonClass="bg-ctp-surface0 text-ctp-text hover:bg-ctp-surface1 flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium {isTransitioning
+	buttonClass="bg-ctp-mantle text-ctp-text hover:bg-ctp-surface0 flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium {isTransitioning
 		? 'opacity-75'
 		: ''}"
 	dropdownClass="w-48"
@@ -52,9 +52,9 @@
 			{#each Object.entries(themes) as [themeKey, themeInfo]}
 				<button
 					onclick={() => selectTheme(themeKey as CatppuccinTheme)}
-					class="text-ctp-text hover:bg-ctp-surface1 flex w-full items-center gap-3 rounded-none px-4 py-2 text-left text-sm transition-colors {currentTheme ===
+					class="text-ctp-text bg-ctp-mantle hover:bg-ctp-surface0 flex w-full items-center gap-3 rounded-none px-4 py-2 text-left text-sm transition-colors {currentTheme ===
 					themeKey
-						? 'bg-ctp-surface1'
+						? 'bg-ctp-surface0'
 						: ''}"
 					role="menuitem"
 				>
