@@ -10,7 +10,7 @@
 		"prepare": "husky",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"format": "prettier --write .",
+		"format": "prettier --write . && eslint --fix .",
 		"lint": "prettier --check . && eslint ."
 	},
 	"devDependencies": {

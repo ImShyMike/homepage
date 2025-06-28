@@ -41,7 +41,7 @@
 
 	{#snippet dropdown()}
 		<div class="bg-ctp-mantle flex flex-wrap items-center justify-center rounded-lg p-4 shadow-md">
-			{#each accents as color}
+			{#each accents as color (color)}
 				<button
 					class="m-1 h-8 w-8 rounded-full transition-all duration-200 hover:scale-110"
 					style="background-color: var(--{color})"

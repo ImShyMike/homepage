@@ -28,7 +28,7 @@
 		{/if}
 		{#if repo.topics && repo.topics.length > 0}
 			<div class="mb-3 flex max-h-[80px] flex-wrap gap-2 overflow-y-auto">
-				{#each repo.topics as topic}
+				{#each repo.topics as topic (topic)}
 					<span
 						class="bg-ctp-surface1 text-ctp-text overflow-hidden rounded-full px-2 py-1 text-xs text-ellipsis whitespace-nowrap"
 						style="max-width: 150px;"

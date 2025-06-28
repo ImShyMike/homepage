@@ -49,7 +49,7 @@
 
 	{#snippet dropdown()}
 		<div role="menu">
-			{#each Object.entries(themes) as [themeKey, themeInfo]}
+			{#each Object.entries(themes) as [themeKey, themeInfo] (themeKey)}
 				<button
 					onclick={() => selectTheme(themeKey as CatppuccinTheme)}
 					class="text-ctp-text bg-ctp-mantle hover:bg-ctp-surface0 flex w-full items-center gap-3 rounded-none px-4 py-2 text-left text-sm transition-colors {currentTheme ===
