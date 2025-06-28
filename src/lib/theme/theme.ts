@@ -52,10 +52,10 @@ function createAccentStore() {
 						localStorage.setItem('accent', newAccent);
 						document.documentElement.style.setProperty('--accent', `var(--${newAccent})`);
 					} else {
-						console.warn(`Invalid accent: ${newAccent}. Using default 'blue'.`);
-						localStorage.setItem('accent', 'blue');
-						document.documentElement.style.setProperty('--accent', `var(--blue)`);
-						return 'blue';
+						console.warn(`Invalid accent: ${newAccent}. Using default 'mauve'.`);
+						localStorage.setItem('accent', 'mauve');
+						document.documentElement.style.setProperty('--accent', `var(--mauve)`);
+						return 'mauve';
 					}
 				}
 				return newAccent;
