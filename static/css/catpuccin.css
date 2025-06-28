@@ -81,6 +81,9 @@
 @utility bg-ctp-crust {
 	background-color: var(--crust);
 }
+@utility bg-ctp-accent {
+	background-color: var(--accent);
+}
 
 @utility text-ctp-rosewater {
 	color: var(--rosewater);
@@ -159,6 +162,9 @@
 }
 @utility text-ctp-crust {
 	color: var(--crust);
+}
+@utility text-ctp-accent {
+	color: var(--accent);
 }
 
 @utility border-ctp-rosewater {
@@ -239,6 +245,9 @@
 @utility border-ctp-crust {
 	border-color: var(--crust);
 }
+@utility border-ctp-accent {
+	border-color: var(--accent);
+}
 
 @utility ring-ctp-rosewater {
 	--tw-ring-color: var(--rosewater);
@@ -317,4 +326,7 @@
 }
 @utility ring-ctp-crust {
 	--tw-ring-color: var(--crust);
+}
+@utility ring-ctp-accent {
+	--tw-ring-color: var(--accent);
 }

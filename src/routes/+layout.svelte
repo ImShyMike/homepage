@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import ThemeSwitcher from '$lib/../components/ThemeSwitcher.svelte';
+	import ColorSwitcher from '$components/ColorSwitcher.svelte';
 
 	let { children } = $props();
 </script>
@@ -12,10 +13,15 @@
 				<div class="flex items-center space-x-6">
 					<nav class="hidden space-x-4 md:flex">
 						<a href="/" class="text-ctp-subtext1 hover:text-ctp-text transition-colors">Home</a>
-						<a href="/projects" class="text-ctp-subtext1 hover:text-ctp-text transition-colors">Projects</a>
+						<a href="/projects" class="text-ctp-subtext1 hover:text-ctp-text transition-colors"
+							>Projects</a
+						>
 					</nav>
 				</div>
-				<ThemeSwitcher />
+				<div class="flex items-center space-x-4">
+					<ThemeSwitcher />
+					<ColorSwitcher />
+				</div>
 			</div>
 		</div>
 	</header>

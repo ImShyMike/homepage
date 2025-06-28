@@ -30,6 +30,7 @@
 	--base: #1e1e2e;
 	--mantle: #181825;
 	--crust: #11111b;
+	--accent: var(--mauve);
 }
 
 /* Latte */
@@ -60,6 +61,7 @@
 	--base: #eff1f5;
 	--mantle: #e6e9ef;
 	--crust: #dce0e8;
+	--accent: var(--mauve);
 }
 
 /* Frappé */
@@ -90,6 +92,7 @@
 	--base: #303446;
 	--mantle: #292c3c;
 	--crust: #232634;
+	--accent: var(--mauve);
 }
 
 /* Macchiato */
@@ -120,6 +123,7 @@
 	--base: #24273a;
 	--mantle: #1e2030;
 	--crust: #181926;
+	--accent: var(--mauve);
 }
 
 /* Mocha */
@@ -150,4 +154,5 @@
 	--base: #1e1e2e;
 	--mantle: #181825;
 	--crust: #11111b;
+	--accent: var(--mauve);
 }

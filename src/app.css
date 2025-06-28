@@ -10,7 +10,7 @@
 *,
 *::before,
 *::after {
-	transition: 
+	transition:
 		background-color 300ms ease-in-out,
 		color 300ms ease-in-out,
 		border-color 300ms ease-in-out,
@@ -20,7 +20,7 @@
 }
 
 :root {
-	transition: 
+	transition:
 		background-color 300ms ease-in-out,
 		color 300ms ease-in-out;
 }
