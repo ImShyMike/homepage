@@ -7,5 +7,5 @@ export { getRepos, languageColors } from './github/github';
 export type { GitHubRepoList, GitHubRepo } from './github/github.d';
 
 // Theme
-export { theme, themes } from './theme/theme';
+export { theme, themes, accents, accent } from './theme/theme';
 export type { CatppuccinTheme } from './theme/theme.d';

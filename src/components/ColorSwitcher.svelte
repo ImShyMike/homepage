@@ -1,32 +1,30 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import Switcher from './Switcher.svelte';
+	import { accents, accent } from '$lib';
 
 	let isOpen = $state(false);
 	let currentColor = $state('mauve');
 
-	const colors = [
-		'rosewater',
-		'flamingo',
-		'pink',
-		'mauve',
-		'red',
-		'maroon',
-		'peach',
-		'yellow',
-		'green',
-		'teal',
-		'sky',
-		'sapphire',
-		'blue',
-		'lavender'
-	];
-
+	
 	function setAccentColor(colorName: string) {
 		document.documentElement.style.setProperty('--accent', `var(--${colorName})`);
+		accent.set(colorName);
 		currentColor = colorName;
 		isOpen = false;
 	}
+
+	$effect(() => {
+		const unsubscribe = accent.subscribe((value) => {
+			currentColor = value;
+			document.documentElement.style.setProperty('--accent', `var(--${value})`);
+		});
+		return unsubscribe;
+	});
+
+	onMount(() => {
+		accent.init();
+	});
 </script>
 
 <Switcher
@@ -46,7 +44,7 @@
 		<div
 			class="bg-ctp-surface0 flex flex-wrap items-center justify-center rounded-lg p-4 shadow-md"
 		>
-			{#each colors as color}
+			{#each accents as color}
 				<button
 					class="m-1 h-8 w-8 rounded-full transition-all duration-200 hover:scale-110"
 					style="background-color: var(--{color})"
