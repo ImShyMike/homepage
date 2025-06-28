@@ -82,7 +82,7 @@
 		@apply text-ctp-text;
 	}
 	code {
-		@apply bg-ctp-surface0 text-ctp-text font-mono pr-0.5 pl-0.5 rounded;
+		@apply bg-ctp-surface0 text-ctp-text rounded pr-0.5 pl-0.5 font-mono;
 		font-family: 'Fira Code', monospace;
 	}
 	pre {

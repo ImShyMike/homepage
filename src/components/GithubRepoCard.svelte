@@ -11,7 +11,7 @@
 		let hash = 0;
 		for (let i = 0; i < topic.length; i++) {
 			const char = topic.charCodeAt(i);
-			hash = ((hash << 5) - hash) + char;
+			hash = (hash << 5) - hash + char;
 			hash = hash & hash;
 		}
 		const index = Math.abs(hash) % accents.length;
@@ -25,7 +25,7 @@
 	let { repo }: Props = $props();
 </script>
 
-<div class="p-2 group">
+<div class="group p-2">
 	<div
 		class="box small-box-glow smooth-border-transition border-ctp-surface1 group-hover:border-ctp-accent flex h-full flex-row rounded-lg border p-6 no-underline transition-colors duration-200"
 	>
@@ -51,7 +51,9 @@
 					{#each repo.topics as topic (topic)}
 						<span
 							class="text-ctp-mantle overflow-hidden rounded-full px-2 py-1 text-xs text-ellipsis whitespace-nowrap"
-							style="max-width: 150px; background-color: color-mix(in srgb, var(--{getColorForTopic(topic)}) 85%, transparent 15%);"
+							style="max-width: 150px; background-color: color-mix(in srgb, var(--{getColorForTopic(
+								topic
+							)}) 85%, transparent 15%);"
 							title={topic}
 						>
 							{topic.length > 11 ? `${topic.substring(0, 11)}...` : topic}

@@ -9,73 +9,79 @@
 }
 
 .low-line::after {
-    content: '';
+	content: '';
 	transform: translateX(-50%);
 	transition: width 200ms ease-in-out !important;
 	@apply bg-ctp-accent absolute bottom-[2px] left-1/2 h-[1px] w-0;
 }
 
 .low-line:hover::after {
-    width: 100%;
+	width: 100%;
 }
 
 .text-glow {
-    text-shadow: 0 0 4px color-mix(in srgb, var(--accent) 50%, transparent);
-    transition: text-shadow 0.3s ease-in-out;
+	text-shadow: 0 0 4px color-mix(in srgb, var(--accent) 50%, transparent);
+	transition: text-shadow 0.3s ease-in-out;
 }
 
 .box-glow {
-    box-shadow: 0 0 4px color-mix(in srgb, var(--accent) 50%, transparent);
-    transition: box-shadow 0.3s ease-in-out;
+	box-shadow: 0 0 4px color-mix(in srgb, var(--accent) 50%, transparent);
+	transition: box-shadow 0.3s ease-in-out;
 }
 
 .glow {
-    text-shadow: 0 0 4px color-mix(in srgb, var(--accent) 50%, transparent);
-    box-shadow: 0 0 4px color-mix(in srgb, var(--accent) 50%, transparent);
-    transition: text-shadow 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+	text-shadow: 0 0 4px color-mix(in srgb, var(--accent) 50%, transparent);
+	box-shadow: 0 0 4px color-mix(in srgb, var(--accent) 50%, transparent);
+	transition:
+		text-shadow 0.3s ease-in-out,
+		box-shadow 0.3s ease-in-out;
 }
 
 .hover-text-glow {
-    transition: text-shadow 0.3s ease-in-out;
+	transition: text-shadow 0.3s ease-in-out;
 }
 
 .hover-text-glow:hover {
-    text-shadow: 0 0 4px color-mix(in srgb, var(--accent) 50%, transparent);
+	text-shadow: 0 0 4px color-mix(in srgb, var(--accent) 50%, transparent);
 }
 
 .hover-box-glow {
-    transition: box-shadow 0.3s ease-in-out;
+	transition: box-shadow 0.3s ease-in-out;
 }
 
 .hover-box-glow:hover {
-    box-shadow: 0 0 4px color-mix(in srgb, var(--accent) 50%, transparent);
+	box-shadow: 0 0 4px color-mix(in srgb, var(--accent) 50%, transparent);
 }
 
 .hover-glow {
-    transition: text-shadow 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+	transition:
+		text-shadow 0.3s ease-in-out,
+		box-shadow 0.3s ease-in-out;
 }
 
 .hover-glow:hover {
-    text-shadow: 0 0 4px color-mix(in srgb, var(--accent) 50%, transparent);
-    box-shadow: 0 0 4px color-mix(in srgb, var(--accent) 50%, transparent);
+	text-shadow: 0 0 4px color-mix(in srgb, var(--accent) 50%, transparent);
+	box-shadow: 0 0 4px color-mix(in srgb, var(--accent) 50%, transparent);
 }
 
 .small-text-glow {
-    text-shadow: 0 0 2px color-mix(in srgb, var(--accent) 50%, transparent);
-    transition: text-shadow 0.3s ease-in-out;
+	text-shadow: 0 0 2px color-mix(in srgb, var(--accent) 50%, transparent);
+	transition: text-shadow 0.3s ease-in-out;
 }
 
 .small-box-glow {
-    box-shadow: 0 0 2px color-mix(in srgb, var(--accent) 50%, transparent);
-    transition: box-shadow 0.3s ease-in-out;
+	box-shadow: 0 0 2px color-mix(in srgb, var(--accent) 50%, transparent);
+	transition: box-shadow 0.3s ease-in-out;
 }
 
 .sglow {
-    text-shadow: 0 0 2px color-mix(in srgb, var(--accent) 50%, transparent);
-    box-shadow: 0 0 2px color-mix(in srgb, var(--accent) 50%, transparent);
-    transition: text-shadow 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+	text-shadow: 0 0 2px color-mix(in srgb, var(--accent) 50%, transparent);
+	box-shadow: 0 0 2px color-mix(in srgb, var(--accent) 50%, transparent);
+	transition:
+		text-shadow 0.3s ease-in-out,
+		box-shadow 0.3s ease-in-out;
 }
 
 .smooth-border-transition {
-    transition: border-color 0.3s ease-in-out;
+	transition: border-color 0.3s ease-in-out;
 }

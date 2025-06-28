@@ -44,7 +44,7 @@
 		</div>
 	{:else if repos.length > 0}
 		<div class="mx-24">
-			<h2 class="text-ctp-text mb-6 text-2xl font-semibold text-center">GitHub Repositories</h2>
+			<h2 class="text-ctp-text mb-6 text-center text-2xl font-semibold">GitHub Repositories</h2>
 			<div class="grid md:grid-cols-2 lg:grid-cols-3">
 				{#each repos as repo (repo.id)}
 					<GithubRepoCard {repo} />

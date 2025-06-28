@@ -15,17 +15,20 @@
 						<a
 							data-sveltekit-preload-data
 							href="/"
-							class="line hover-text-glow text-ctp-subtext1 hover:text-ctp-text transition-colors">Home</a
+							class="line hover-text-glow text-ctp-subtext1 hover:text-ctp-text transition-colors"
+							>Home</a
 						>
 						<a
 							data-sveltekit-preload-data
 							href="/projects"
-							class="line hover-text-glow text-ctp-subtext1 hover:text-ctp-text transition-colors">Projects</a
+							class="line hover-text-glow text-ctp-subtext1 hover:text-ctp-text transition-colors"
+							>Projects</a
 						>
 						<a
 							data-sveltekit-preload-data
 							href="/posts"
-							class="line hover-text-glow text-ctp-subtext1 hover:text-ctp-text transition-colors">Posts</a
+							class="line hover-text-glow text-ctp-subtext1 hover:text-ctp-text transition-colors"
+							>Posts</a
 						>
 					</nav>
 				</div>
