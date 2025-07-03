@@ -1,6 +1,6 @@
 import type { GitHubRepoList } from './github.d';
 
-const getRepos = async (username: string): Promise<GitHubRepoList> => {
+export async function getRepos(username: string): Promise<GitHubRepoList> {
 	const response = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`, {
 		headers: {
 			Accept: 'application/vnd.github.v3+json'
@@ -13,7 +13,7 @@ const getRepos = async (username: string): Promise<GitHubRepoList> => {
 
 	const data = await response.json();
 	return data as GitHubRepoList;
-};
+}
 
 export const languageColors: Record<string, string> = {
 	JavaScript: '#f1e05a',
@@ -34,5 +34,3 @@ export const languageColors: Record<string, string> = {
 	Ruby: '#701516',
 	'AGS Script': '#B9D9FF'
 };
-
-export { getRepos };

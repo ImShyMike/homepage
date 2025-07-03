@@ -6,6 +6,7 @@
 	import GitCommit from 'virtual:icons/tabler/git-commit';
 	import GithubIcon from 'virtual:icons/tabler/brand-github';
 	import BlueskyIcon from 'virtual:icons/tabler/brand-bluesky';
+	import DiscordIcon from 'virtual:icons/tabler/brand-discord';
 
 	const userUrl = `https://github.com/${GithubData.name}`;
 	const commitSha = PUBLIC_COMMIT_SHA == '$CF_PAGES_COMMIT_SHA' ? undefined : PUBLIC_COMMIT_SHA;
@@ -51,6 +52,7 @@
 			<div class="flex flex-row gap-1.5 text-center">
 				<a
 					href={userUrl}
+					aria-label="GitHub"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="text-ctp-text hover:text-ctp-accent flex items-center transition-colors"
@@ -61,6 +63,7 @@
 				</a>
 				<a
 					href={Socials.bluesky}
+					aria-label="Bluesky"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="text-ctp-text hover:text-ctp-accent flex items-center transition-colors"
@@ -68,6 +71,17 @@
 					data-umami-event-url={Socials.bluesky}
 				>
 					<BlueskyIcon class="h-4.5 w-4.5 sm:h-5.5 sm:w-5.5" />
+				</a>
+				<a
+					href={Socials.discord}
+					aria-label="Discord"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="text-ctp-text hover:text-ctp-accent flex items-center transition-colors"
+					data-umami-event="socials-click"
+					data-umami-event-url={Socials.discord}
+				>
+					<DiscordIcon class="h-4.5 w-4.5 sm:h-5.5 sm:w-5.5" />
 				</a>
 			</div>
 		</div>

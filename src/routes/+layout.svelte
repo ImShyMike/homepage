@@ -7,6 +7,8 @@
 	import { page } from '$app/state';
 	import { onMount } from 'svelte';
 	import { createSwitcherContext } from '$lib/context/switcher-context.svelte';
+	import ThreeBarsIcon from 'virtual:icons/octicon/three-bars.svg';
+	import CloseIcon from 'virtual:icons/octicon/x-12';
 
 	const isProd = import.meta.env.MODE === 'production';
 
@@ -16,44 +18,6 @@
 
 	createSwitcherContext();
 
-	function setupUmamiTracking(element: Element) {
-		// umami outbound link tracking - https://umami.is/docs/track-outbound-links
-		if (element.tagName === 'A') {
-			const a = element as HTMLAnchorElement;
-			if (a.host !== window.location.host && !a.getAttribute('data-umami-event')) {
-				a.setAttribute('data-umami-event', 'outbound-link-click');
-				a.setAttribute('data-umami-event-url', a.href);
-			}
-		}
-		// umami button click tracking
-		else if (element.tagName === 'BUTTON') {
-			const button = element as HTMLButtonElement;
-			if (!button.getAttribute('data-umami-event')) {
-				let data = button.getAttribute('aria-label')?.trim() || button.textContent?.trim() || '';
-				if (data) {
-					button.setAttribute('data-umami-event', 'button-click');
-					button.setAttribute('data-umami-event-name', data);
-				}
-			}
-		}
-
-		element.querySelectorAll('a').forEach((a) => {
-			if (a.host !== window.location.host && !a.getAttribute('data-umami-event')) {
-				a.setAttribute('data-umami-event', 'outbound-link-click');
-				a.setAttribute('data-umami-event-url', a.href);
-			}
-		});
-		element.querySelectorAll('button').forEach((button) => {
-			if (!button.getAttribute('data-umami-event')) {
-				let data = button.getAttribute('aria-label')?.trim() || button.textContent?.trim() || '';
-				if (data) {
-					button.setAttribute('data-umami-event', 'button-click');
-					button.setAttribute('data-umami-event-name', data);
-				}
-			}
-		});
-	}
-
 	onMount(() => {
 		const handleScroll = () => {
 			isScrolled = window.scrollY > 10;
@@ -62,31 +26,17 @@
 		isScrolled = window.scrollY > 10;
 		window.addEventListener('scroll', handleScroll);
 
-		const observer = new MutationObserver((mutations) => {
-			mutations.forEach((mutation) => {
-				mutation.addedNodes.forEach((node) => {
-					if (node.nodeType === Node.ELEMENT_NODE) {
-						setupUmamiTracking(node as Element);
-					}
-				});
-			});
-		});
-
-		observer.observe(document.body, {
-			childList: true,
-			subtree: true,
-			attributes: false,
-			characterData: false
-		});
-
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
-			observer.disconnect();
 		};
 	});
 
 	function toggleMobileMenu() {
 		isMobileMenuOpen = !isMobileMenuOpen;
+	}
+
+	function isActive(path: string): string {
+		return page.url.pathname === path ? 'fill-line' : '';
 	}
 
 	let title = $derived(['~', ...page.url.pathname.split('/').slice(1)].join('/'));
@@ -113,12 +63,12 @@
 	<link rel="canonical" href={WebsiteData.url + page.url.pathname} />
 
 	{#if isProd}
-		<link rel="preconnect" href="https://umami.shymike.dev" />
+		<link rel="preconnect" href={UmamiData.url} />
 		<script
 			async
 			defer
-			src="http://umami.shymike.dev/script.js"
-			data-website-id="dea5159a-f101-4266-ab03-2cc56ed5cc42"
+			src="{UmamiData.url}/script.js"
+			data-website-id={UmamiData.websiteId}
 			data-domains={UmamiData.domains}
 			data-exclude-search="false"
 			data-auto-track="true"
@@ -144,22 +94,25 @@
 						<a
 							data-sveltekit-preload-data
 							href="/"
-							class="line hover-text-glow text-ctp-subtext1 hover:text-ctp-text px-0.5 transition-colors"
-							>Home</a
+							class="line hover-text-glow text-ctp-subtext1 hover:text-ctp-text px-0.5 transition-colors {isActive(
+								'/'
+							)}">Home</a
 						>
 						{@render spacer()}
 						<a
 							data-sveltekit-preload-data
 							href="/projects"
-							class="line hover-text-glow text-ctp-subtext1 hover:text-ctp-text px-0.5 transition-colors"
-							>Projects</a
+							class="line hover-text-glow text-ctp-subtext1 hover:text-ctp-text px-0.5 transition-colors {isActive(
+								'/projects'
+							)}">Projects</a
 						>
 						{@render spacer()}
 						<a
 							data-sveltekit-preload-data
 							href="/posts"
-							class="line hover-text-glow text-ctp-subtext1 hover:text-ctp-text px-0.5 transition-colors"
-							>Posts</a
+							class="line hover-text-glow text-ctp-subtext1 hover:text-ctp-text px-0.5 transition-colors {isActive(
+								'/posts'
+							)}">Posts</a
 						>
 					</nav>
 
@@ -169,23 +122,11 @@
 						onclick={toggleMobileMenu}
 						aria-label="Toggle mobile menu"
 					>
-						<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							{#if isMobileMenuOpen}
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M6 18L18 6M6 6l12 12"
-								/>
-							{:else}
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M4 6h16M4 12h16M4 18h16"
-								/>
-							{/if}
-						</svg>
+						{#if isMobileMenuOpen}
+							<CloseIcon class="h-6 w-6" />
+						{:else}
+							<ThreeBarsIcon class="h-6 w-6" />
+						{/if}
 					</button>
 				</div>
 				<div class="flex items-center space-x-4">
@@ -201,19 +142,25 @@
 						<a
 							data-sveltekit-preload-data
 							href="/"
-							class="line hover-text-glow text-ctp-subtext1 hover:text-ctp-text block px-0.5 py-1 transition-colors"
+							class="line hover-text-glow text-ctp-subtext1 hover:text-ctp-text block px-0.5 py-1 transition-colors {isActive(
+								'/'
+							)}"
 							onclick={() => (isMobileMenuOpen = false)}>Home</a
 						>
 						<a
 							data-sveltekit-preload-data
 							href="/projects"
-							class="line hover-text-glow text-ctp-subtext1 hover:text-ctp-text block px-0.5 py-1 transition-colors"
+							class="line hover-text-glow text-ctp-subtext1 hover:text-ctp-text block px-0.5 py-1 transition-colors {isActive(
+								'/projects'
+							)}"
 							onclick={() => (isMobileMenuOpen = false)}>Projects</a
 						>
 						<a
 							data-sveltekit-preload-data
 							href="/posts"
-							class="line hover-text-glow text-ctp-subtext1 hover:text-ctp-text block px-0.5 py-1 transition-colors"
+							class="line hover-text-glow text-ctp-subtext1 hover:text-ctp-text block px-0.5 py-1 transition-colors {isActive(
+								'/posts'
+							)}"
 							onclick={() => (isMobileMenuOpen = false)}>Posts</a
 						>
 					</nav>

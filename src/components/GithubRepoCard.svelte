@@ -83,11 +83,23 @@
 			</div>
 		</div>
 		<div class="flex flex-shrink-0 flex-col items-center justify-start space-y-3">
-			<a href={repo.html_url} target="_blank" rel="noopener noreferrer">
+			<a
+				href={repo.html_url}
+				target="_blank"
+				rel="noopener noreferrer"
+				data-umami-event="repo-link"
+				data-umami-url={repo.html_url}
+			>
 				<Github class="text-ctp-subtext1 hover:text-ctp-accent h-5.5 w-5.5" />
 			</a>
 			{#if repo.homepage}
-				<a href={repo.homepage} target="_blank" rel="noopener noreferrer">
+				<a
+					href={repo.homepage}
+					target="_blank"
+					rel="noopener noreferrer"
+					data-umami-event="repo-homepage"
+					data-umami-url={repo.homepage}
+				>
 					<Link class="text-ctp-subtext1 hover:text-ctp-accent h-5.5 w-5.5" />
 				</a>
 			{/if}
