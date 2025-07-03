@@ -36,7 +36,8 @@
 			if (!button.getAttribute('data-umami-event')) {
 				let data = button.getAttribute('aria-label')?.trim() || button.textContent?.trim() || '';
 				if (data) {
-					button.setAttribute('data-umami-event', data);
+					button.setAttribute('data-umami-event', 'button-click');
+					button.setAttribute('data-umami-event-name', data);
 				}
 			}
 		});
