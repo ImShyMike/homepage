@@ -22,18 +22,8 @@
 		};
 
 		isScrolled = window.scrollY > 10;
-
 		window.addEventListener('scroll', handleScroll);
-		return () => window.removeEventListener('scroll', handleScroll);
-	});
 
-	function toggleMobileMenu() {
-		isMobileMenuOpen = !isMobileMenuOpen;
-	}
-
-	let title = $derived(['~', ...page.url.pathname.split('/').slice(1)].join('/'));
-
-	(() => {
 		// umami outbound link tracking - https://umami.is/docs/track-outbound-links
 		document.querySelectorAll('a').forEach((a) => {
 			if (a.host !== window.location.host && !a.getAttribute('data-umami-event')) {
@@ -50,7 +40,15 @@
 				}
 			}
 		});
-	})();
+
+		return () => window.removeEventListener('scroll', handleScroll);
+	});
+
+	function toggleMobileMenu() {
+		isMobileMenuOpen = !isMobileMenuOpen;
+	}
+
+	let title = $derived(['~', ...page.url.pathname.split('/').slice(1)].join('/'));
 </script>
 
 <svelte:head>
