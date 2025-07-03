@@ -38,6 +38,8 @@
 				target="_blank"
 				rel="noopener noreferrer"
 				class="low-line text-ctp-text hover:text-ctp-accent flex items-center transition-colors"
+				data-umami-event="git-commit"
+				data-umami-event-commit={commitSha}
 			>
 				<GitCommit class="mr-1 h-5 w-5" /><span>{shortHash}</span>
 			</a>
@@ -52,6 +54,8 @@
 					target="_blank"
 					rel="noopener noreferrer"
 					class="text-ctp-text hover:text-ctp-accent flex items-center transition-colors"
+					data-umami-event="socials-github"
+					data-umami-event-url={userUrl}
 				>
 					<GithubIcon class="mr-1 h-5.5 w-5.5" />
 				</a>
@@ -60,6 +64,8 @@
 					target="_blank"
 					rel="noopener noreferrer"
 					class="text-ctp-text hover:text-ctp-accent flex items-center transition-colors"
+					data-umami-event="socials-bluesky"
+					data-umami-event-url={Socials.bluesky}
 				>
 					<BlueskyIcon class="mr-1 h-5.5 w-5.5" />
 				</a>
