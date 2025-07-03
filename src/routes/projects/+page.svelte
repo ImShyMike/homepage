@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { GithubData, getRepos } from '$lib';
-	import type { GitHubRepoList } from '$lib';
+	import { GithubData } from '$lib';
+	import { getRepos } from '$lib/github/github';
+	import type { GitHubRepoList } from '$lib/github/github.d';
 
 	import ErrorIcon from 'virtual:icons/mdi/error.svg';
 

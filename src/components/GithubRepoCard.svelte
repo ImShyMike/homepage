@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { languageColors, type GitHubRepo } from '$lib';
-	import { accents } from '$lib';
+	import { languageColors } from '$lib/github/github';
+	import type { GitHubRepo } from '$lib/github/github.d';
+	import { accents } from '$lib/theme/theme';
 
 	import Star from 'virtual:icons/mdi/star.svg';
 	import Github from 'virtual:icons/mdi/github.svg';

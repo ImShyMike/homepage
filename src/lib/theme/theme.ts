@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 import { browser } from '$app/environment';
-import type { CatppuccinTheme } from '$lib';
+import type { CatppuccinTheme } from './theme.d';
 
 const defaultTheme: CatppuccinTheme = 'mocha';
 const defaultAccent: string = 'mauve';

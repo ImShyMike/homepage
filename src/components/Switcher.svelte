@@ -1,6 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import type { Snippet } from 'svelte';
+	import { getSwitcherContext } from '$lib/context/switcher-context.svelte';
+
+	const switcherId = crypto.randomUUID();
+	const switcherContext = getSwitcherContext();
 
 	let {
 		isOpen = $bindable(false),
@@ -22,22 +26,47 @@
 		dropdown?: Snippet;
 	} = $props();
 
+	$effect(() => {
+		if (switcherContext) {
+			const contextOpen = switcherContext.currentlyOpen === switcherId;
+			if (isOpen !== contextOpen) {
+				isOpen = contextOpen;
+			}
+		}
+	});
+
 	function toggleDropdown() {
 		if (!disabled) {
-			isOpen = !isOpen;
+			if (switcherContext) {
+				if (isOpen) {
+					switcherContext.closeSwitcher(switcherId);
+				} else {
+					switcherContext.openSwitcher(switcherId);
+				}
+			} else {
+				isOpen = !isOpen;
+			}
 		}
 	}
 
 	function handleKeydown(event: KeyboardEvent) {
 		if (event.key === 'Escape') {
-			isOpen = false;
+			if (switcherContext) {
+				switcherContext.closeAll();
+			} else {
+				isOpen = false;
+			}
 		}
 	}
 
 	function handleClickOutside(event: MouseEvent) {
 		const target = event.target as Element;
 		if (!target.closest('.switcher-container')) {
-			isOpen = false;
+			if (switcherContext) {
+				switcherContext.closeAll();
+			} else {
+				isOpen = false;
+			}
 		}
 	}
 

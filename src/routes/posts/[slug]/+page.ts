@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
-import type { PostModule } from '$lib';
+import type { PostModule } from '$lib/posts/posts';
 
 export const load: PageLoad = async ({ params }) => {
 	const modules = import.meta.glob<PostModule>('../svx/*.svx', { eager: true });

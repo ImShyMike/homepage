@@ -1,5 +1,5 @@
 import type { PageLoad } from './$types';
-import type { Post, PostModule } from '$lib';
+import type { Post, PostModule } from '$lib/posts/posts';
 
 export const load: PageLoad = async () => {
 	// Glob‐import all .svx files

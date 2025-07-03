@@ -11,13 +11,14 @@ export const WebsiteData = {
 	tags: ['homepage', 'personal', 'blog']
 };
 
-// Github
-export { getRepos, languageColors } from './github/github';
-export type { GitHubRepoList, GitHubRepo } from './github/github.d';
+export const UmamiData = {
+	url: 'https://umami.shymike.dev',
+	websiteId: 'dea5159a-f101-4266-ab03-2cc56ed5cc42',
+	shareToken:
+		'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJzaXRlSWQiOiJkZWE1MTU5YS1mMTAxLTQyNjYtYWIwMy0yY2M1NmVkNWNjNDIiLCJpYXQiOjE3NTE0ODk1MjV9.c9i3oXCZlaxVf-WbvpXBmhTxv-Evd4svJHZkkcN5DD0',
+	domains: 'shymike.dev'
+};
 
-// Theme
-export { theme, themes, accents, accent } from './theme/theme';
-export type { CatppuccinTheme } from './theme/theme.d';
-
-// Posts
-export type { PostMeta, Post, PostModule } from './posts/post.d';
+export const Socials = {
+	bluesky: 'https://bsky.app/profile/shymike.dev'
+};

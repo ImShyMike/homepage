@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { PostMeta } from '$lib';
+	import type { PostMeta } from '$lib/posts/posts';
 	import type { Component } from 'svelte';
 
 	export let data: {
