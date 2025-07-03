@@ -20,5 +20,7 @@ export const UmamiData = {
 };
 
 export const Socials = {
-	bluesky: 'https://bsky.app/profile/shymike.dev'
+	bluesky: 'https://bsky.app/profile/shymike.dev',
+	discord: 'https://discord.com/users/582648583635992622',
+	backloggd: 'https://www.backloggd.com/u/ShyMike'
 };

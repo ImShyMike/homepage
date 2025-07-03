@@ -31,19 +31,19 @@
 		class="box small-box-glow smooth-border-transition border-ctp-surface1 group-hover:border-ctp-accent flex h-full flex-row rounded-lg border p-6 no-underline transition-colors duration-200"
 	>
 		<div class="items-left mr-3 flex flex-1 flex-col justify-between">
-			<div class="mb-3 flex items-start justify-between">
+			<div class="mb-2 flex items-start justify-between">
 				<h3 class="text-ctp-text text-lg font-medium transition-colors">
 					{repo.name}
 				</h3>
 			</div>
 			{#if repo.description}
-				<p class="text-ctp-subtext0 mb-3 line-clamp-2 text-sm">
+				<p class="text-ctp-subtext0 mb-2 line-clamp-2 text-sm">
 					{repo.description}
 				</p>
 			{/if}
 			{#if repo.topics && repo.topics.length > 0}
-				<div class="mb-3 flex max-h-[80px] flex-wrap gap-2 overflow-y-auto">
-					<Tag class="text-ctp-text h-4 w-4" />
+				<div class="mb-2 flex max-h-[80px] flex-wrap items-center gap-2 overflow-y-auto">
+					<Tag class="text-ctp-text h-5 w-5 text-center align-middle" />
 					{#if repo.topics.length > 3}
 						<span class="text-ctp-subtext1 text-xs">
 							{repo.topics.length} topics

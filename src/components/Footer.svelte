@@ -31,43 +31,43 @@
 {#snippet spacer()}<span class="bold text-ctp-surface1">|</span>{/snippet}
 
 <footer class="flex justify-center">
-	<div class="bg-ctp-mantle border-ctp-surface1 mx-4 mb-3 rounded-lg border px-6 py-3 shadow-lg">
-		<div class="flex flex-row items-center justify-between gap-4">
+	<div class="bg-ctp-mantle border-ctp-surface1 mx-4 mb-3 rounded-lg border p-3 shadow-lg">
+		<div class="flex flex-row items-center justify-between gap-2 sm:gap-4">
 			<a
 				href={gitCommitUrl}
 				target="_blank"
 				rel="noopener noreferrer"
-				class="low-line text-ctp-text hover:text-ctp-accent flex items-center transition-colors"
+				class="low-line text-ctp-text hover:text-ctp-accent flex items-center text-sm transition-colors sm:text-base"
 				data-umami-event="git-commit"
 				data-umami-event-commit={commitSha}
 			>
-				<GitCommit class="mr-1 h-5 w-5" /><span>{shortHash}</span>
+				<GitCommit class="h-4 w-4 sm:h-5 sm:w-5" /><span>{shortHash}</span>
 			</a>
 			{@render spacer()}
-			<span class="text-ctp-text flex items-center">
+			<span class="text-ctp-text flex items-center text-sm sm:text-base">
 				{views.toLocaleString()} views
 			</span>
 			{@render spacer()}
-			<div class="flex flex-row gap-1 text-center">
+			<div class="flex flex-row gap-1.5 text-center">
 				<a
 					href={userUrl}
 					target="_blank"
 					rel="noopener noreferrer"
 					class="text-ctp-text hover:text-ctp-accent flex items-center transition-colors"
-					data-umami-event="socials-github"
+					data-umami-event="socials-click"
 					data-umami-event-url={userUrl}
 				>
-					<GithubIcon class="mr-1 h-5.5 w-5.5" />
+					<GithubIcon class="h-4.5 w-4.5 sm:h-5.5 sm:w-5.5" />
 				</a>
 				<a
 					href={Socials.bluesky}
 					target="_blank"
 					rel="noopener noreferrer"
 					class="text-ctp-text hover:text-ctp-accent flex items-center transition-colors"
-					data-umami-event="socials-bluesky"
+					data-umami-event="socials-click"
 					data-umami-event-url={Socials.bluesky}
 				>
-					<BlueskyIcon class="mr-1 h-5.5 w-5.5" />
+					<BlueskyIcon class="h-4.5 w-4.5 sm:h-5.5 sm:w-5.5" />
 				</a>
 			</div>
 		</div>
