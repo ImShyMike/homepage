@@ -16,14 +16,7 @@
 
 	createSwitcherContext();
 
-	onMount(() => {
-		const handleScroll = () => {
-			isScrolled = window.scrollY > 10;
-		};
-
-		isScrolled = window.scrollY > 10;
-		window.addEventListener('scroll', handleScroll);
-
+	function setupUmamiTracking() {
 		// umami outbound link tracking - https://umami.is/docs/track-outbound-links
 		document.querySelectorAll('a').forEach((a) => {
 			if (a.host !== window.location.host && !a.getAttribute('data-umami-event')) {
@@ -41,8 +34,29 @@
 				}
 			}
 		});
+	}
+
+	onMount(() => {
+		const handleScroll = () => {
+			isScrolled = window.scrollY > 10;
+		};
+
+		isScrolled = window.scrollY > 10;
+		window.addEventListener('scroll', handleScroll);
+
+		setupUmamiTracking();
 
 		return () => window.removeEventListener('scroll', handleScroll);
+	});
+
+	// rerun script on page change
+	$effect(() => {
+		void page.url.pathname;
+
+		// wait for the DOM to load
+		requestAnimationFrame(() => {
+			setupUmamiTracking();
+		});
 	});
 
 	function toggleMobileMenu() {
