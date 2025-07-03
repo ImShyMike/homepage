@@ -16,16 +16,34 @@
 
 	createSwitcherContext();
 
-	function setupUmamiTracking() {
+	function setupUmamiTracking(element: Element) {
 		// umami outbound link tracking - https://umami.is/docs/track-outbound-links
-		document.querySelectorAll('a').forEach((a) => {
+		if (element.tagName === 'A') {
+			const a = element as HTMLAnchorElement;
+			if (a.host !== window.location.host && !a.getAttribute('data-umami-event')) {
+				a.setAttribute('data-umami-event', 'outbound-link-click');
+				a.setAttribute('data-umami-event-url', a.href);
+			}
+		}
+		// umami button click tracking
+		else if (element.tagName === 'BUTTON') {
+			const button = element as HTMLButtonElement;
+			if (!button.getAttribute('data-umami-event')) {
+				let data = button.getAttribute('aria-label')?.trim() || button.textContent?.trim() || '';
+				if (data) {
+					button.setAttribute('data-umami-event', 'button-click');
+					button.setAttribute('data-umami-event-name', data);
+				}
+			}
+		}
+
+		element.querySelectorAll('a').forEach((a) => {
 			if (a.host !== window.location.host && !a.getAttribute('data-umami-event')) {
 				a.setAttribute('data-umami-event', 'outbound-link-click');
 				a.setAttribute('data-umami-event-url', a.href);
 			}
 		});
-		// umami button click tracking
-		document.querySelectorAll('button').forEach((button) => {
+		element.querySelectorAll('button').forEach((button) => {
 			if (!button.getAttribute('data-umami-event')) {
 				let data = button.getAttribute('aria-label')?.trim() || button.textContent?.trim() || '';
 				if (data) {
@@ -44,19 +62,27 @@
 		isScrolled = window.scrollY > 10;
 		window.addEventListener('scroll', handleScroll);
 
-		setupUmamiTracking();
-
-		return () => window.removeEventListener('scroll', handleScroll);
-	});
-
-	// rerun script on page change
-	$effect(() => {
-		void page.url.pathname;
-
-		// wait for the DOM to load
-		requestAnimationFrame(() => {
-			setupUmamiTracking();
+		const observer = new MutationObserver((mutations) => {
+			mutations.forEach((mutation) => {
+				mutation.addedNodes.forEach((node) => {
+					if (node.nodeType === Node.ELEMENT_NODE) {
+						setupUmamiTracking(node as Element);
+					}
+				});
+			});
 		});
+
+		observer.observe(document.body, {
+			childList: true,
+			subtree: true,
+			attributes: false,
+			characterData: false
+		});
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+			observer.disconnect();
+		};
 	});
 
 	function toggleMobileMenu() {
