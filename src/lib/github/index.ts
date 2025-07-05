@@ -1,4 +1,4 @@
-import type { GitHubRepoList } from './github.d';
+import type { GitHubRepoList } from './github';
 
 export async function getRepos(username: string): Promise<GitHubRepoList> {
 	const response = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`, {

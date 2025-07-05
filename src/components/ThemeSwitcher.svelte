@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { theme, themes } from '$lib/theme/theme';
+	import { theme, themes } from '$lib/theme';
 	import type { CatppuccinTheme } from '$lib/theme/theme.d';
 	import { onMount } from 'svelte';
 	import Check from 'virtual:icons/mdi/check.svg';

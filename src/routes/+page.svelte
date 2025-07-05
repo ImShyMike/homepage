@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { GithubData } from '$lib';
-	import { getRepos } from '$lib/github/github';
+	import { getRepos } from '$lib/github';
 
 	let stars = $state(0);
 	let repoCount = $state(0);
@@ -32,8 +32,8 @@
 
 	<section class="text-center">
 		<p>
-			Over the years, I've worked on various projects and currently have amassed <span
-				class="text-ctp-yellow font-bold">{stars}</span
+			I've worked on various projects and have amassed <span class="text-ctp-yellow font-bold"
+				>{stars}</span
 			>
 			stars across <span class="text-ctp-yellow font-bold">{repoCount}</span> repositories on GitHub.
 		</p>

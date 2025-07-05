@@ -6,6 +6,7 @@ export interface PostMeta {
 	date: string; // ISO date
 	description?: string;
 	tags?: string[];
+	project?: string;
 }
 
 export interface Post {

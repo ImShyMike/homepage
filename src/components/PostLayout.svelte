@@ -1,14 +1,46 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	export let title = '';
 	export let date = '';
+	export let project = '';
+
+	function goBack() {
+		if (browser) {
+			history.back();
+		}
+	}
 </script>
 
-<article class="prose prose-lg mx-auto max-w-4xl">
+<article class="prose prose-lg mx-auto max-w-6xl">
+	<button
+		class="line hover-text-glow text-ctp-text hover:text-ctp-accent m-0 mb-6 flex cursor-pointer items-center gap-2 bg-transparent p-0"
+		onclick={goBack}
+		aria-label="Go back"
+	>
+		<!-- material-symbols:arrow-back-rounded -->
+		<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+			><!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path
+				fill="currentColor"
+				d="m7.825 13l4.9 4.9q.3.3.288.7t-.313.7q-.3.275-.7.288t-.7-.288l-6.6-6.6q-.15-.15-.213-.325T4.426 12t.063-.375t.212-.325l6.6-6.6q.275-.275.688-.275t.712.275q.3.3.3.713t-.3.712L7.825 11H19q.425 0 .713.288T20 12t-.288.713T19 13z"
+			/></svg
+		>
+		<span>Go Back</span>
+	</button>
+
 	{#if title}
-		<h1 class="text-ctp-text mb-4">{title}</h1>
+		<div class="mb-4 flex items-center justify-between border-t border-[var(--surface1)] pt-5">
+			<h1 class="title">{title}</h1>
+			{#if project}
+				<span
+					class="text-ctp-accent bg-ctp-accent/10 border-ctp-accent/20 rounded-full border px-3 py-1 text-sm font-medium"
+				>
+					{project}
+				</span>
+			{/if}
+		</div>
 	{/if}
 
-	<div class="text-ctp-subtext0 mb-6 border-b border-[var(--surface1)] pb-4 text-sm">
+	<div class="text-ctp-subtext0 mb-6 border-b border-[var(--surface1)] text-sm">
 		{#if date}
 			<p class="date pl-1">Published: {date}</p>
 		{/if}
@@ -20,6 +52,10 @@
 </article>
 
 <style>
+	.prose .title {
+		color: var(--accent) !important;
+		margin: 0 !important;
+	}
 	.prose {
 		color: var(--text);
 	}

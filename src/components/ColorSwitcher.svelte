@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import Switcher from './Switcher.svelte';
-	import { accents, accent } from '$lib/theme/theme';
+	import { accents, accent } from '$lib/theme';
 
 	let isOpen = $state(false);
 	let currentColor = $state('mauve');

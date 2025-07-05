@@ -36,7 +36,15 @@
 	}
 
 	function isActive(path: string): string {
-		return page.url.pathname === path ? 'fill-line' : '';
+		const normalize = (url: string) => url.replace(/\/+$/, '');
+		const currentPath = normalize(page.url.pathname);
+		const targetPath = normalize(path);
+
+		return currentPath === targetPath
+			? 'fill-line'
+			: currentPath.startsWith(targetPath) && targetPath !== ''
+				? 'fill-line'
+				: '';
 	}
 
 	let title = $derived(['~', ...page.url.pathname.split('/').slice(1)].join('/'));
@@ -83,7 +91,7 @@
 <div class="bg-ctp-base text-ctp-text flex min-h-screen flex-col">
 	<header
 		class="border-ctp-surface0 fixed top-0 right-0 left-0 z-50 border-b transition-all duration-300 {isScrolled
-			? 'bg-ctp-mantle/80 backdrop-blur-md'
+			? 'bg-ctp-mantle/90 backdrop-blur-sm'
 			: 'bg-ctp-mantle'}"
 	>
 		<div class="mx-auto max-w-7xl px-4 lg:px-8 xl:px-12">
@@ -169,7 +177,7 @@
 		</div>
 	</header>
 
-	<main class="mx-auto max-w-none flex-grow px-4 py-6 pt-22 sm:px-6 lg:px-12 xl:px-16">
+	<main class="max-w-none flex-grow px-4 py-6 pt-22 sm:px-6 lg:px-12 xl:px-16">
 		{@render children()}
 	</main>
 

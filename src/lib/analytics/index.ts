@@ -1,5 +1,5 @@
 import { UmamiData } from '$lib';
-import type { UmamiStats } from './umami.d';
+import type { UmamiStats } from './umami';
 
 export async function getUmamiStats(): Promise<UmamiStats> {
 	const nowMs = Date.now();

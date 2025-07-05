@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { PUBLIC_COMMIT_SHA } from '$env/static/public';
 	import { GithubData, Socials } from '$lib';
-	import { getUmamiStats } from '$lib/analytics/umami';
+	import { getUmamiStats } from '$lib/analytics';
 	import { onMount } from 'svelte';
 	import GitCommit from 'virtual:icons/tabler/git-commit';
 	import GithubIcon from 'virtual:icons/tabler/brand-github';

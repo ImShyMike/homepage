@@ -2,6 +2,7 @@
 title: "Hello World"
 date: "2025-06-28"
 description: "My first static post with mdsvex"
+project: "waka-relay"
 tags:
   - mdsvex
   - sveltekit
