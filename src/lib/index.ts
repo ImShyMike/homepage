@@ -21,5 +21,10 @@ export const UmamiData = {
 
 export const Socials = {
 	bluesky: 'https://bsky.app/profile/shymike.dev',
-	discord: 'https://discord.com/users/582648583635992622'
+	discord: 'https://discord.com/users/582648583635992622',
+	email: {
+		nonce: 'a92cff5e-4050-423e-94a7-fe94e4befd58',
+		encrypted: 'DFxyEA4fWAxGUR5RVVs=',
+		difficulty: 4
+	}
 };
