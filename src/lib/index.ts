@@ -1,3 +1,5 @@
+export const isDev = import.meta.env.DEV;
+
 export const GithubData = {
 	name: 'ImShyMike',
 	repo: 'homepage'

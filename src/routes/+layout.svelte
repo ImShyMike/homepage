@@ -4,14 +4,12 @@
 	import ColorSwitcher from '$components/ColorSwitcher.svelte';
 	import Footer from '$components/Footer.svelte';
 	import NotificationContainer from '$components/NotificationContainer.svelte';
-	import { WebsiteData, UmamiData } from '$lib';
+	import { WebsiteData, UmamiData, isDev } from '$lib';
 	import { page } from '$app/state';
 	import { onMount } from 'svelte';
 	import { createSwitcherContext } from '$lib/context/switcher-context.svelte';
 	import ThreeBarsIcon from 'virtual:icons/octicon/three-bars.svg';
 	import CloseIcon from 'virtual:icons/octicon/x-12';
-
-	const isProd = import.meta.env.MODE === 'production';
 
 	let { children } = $props();
 	let isScrolled = $state(false);
@@ -71,7 +69,7 @@
 	<meta name="keywords" content={WebsiteData.tags.join(', ')} />
 	<link rel="canonical" href={WebsiteData.url + page.url.pathname} />
 
-	{#if isProd}
+	{#if !isDev}
 		<link rel="preconnect" href={UmamiData.url} />
 		<script
 			async

@@ -11,3 +11,7 @@ tags:
 ## Hello!
 
 Welcome to my ~~dynamic~~ **static** blog powered by mdsvex and TypeScript!
+
+[testing href](/posts/styling-test)
+
+![waka relay icon](/images/waka-relay.png)

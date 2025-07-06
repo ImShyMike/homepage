@@ -2,7 +2,7 @@ import type { Post, PostModule } from './posts.d';
 
 export async function loadPosts(): Promise<Post[]> {
 	// Glob-import all .svx files
-	const modules = import.meta.glob<PostModule>('../../routes/posts/svx/*.svx', { eager: true });
+	const modules = import.meta.glob<PostModule>('$lib/content/*.svx', { eager: true });
 	const posts: Post[] = Object.entries(modules).map(([path, mod]) => {
 		const slug = path
 			.split('/')
