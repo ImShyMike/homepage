@@ -4,6 +4,7 @@ export interface PostMeta {
 	id: string;
 	title: string;
 	date: string; // ISO date
+	edited?: string; // ISO date, optional
 	description?: string;
 	tags?: string[];
 	project?: string;

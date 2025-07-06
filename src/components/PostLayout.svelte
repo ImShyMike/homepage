@@ -3,6 +3,7 @@
 	export let title = '';
 	export let date = '';
 	export let project = '';
+	export let edited = '';
 
 	function goBack() {
 		if (browser) {
@@ -30,21 +31,28 @@
 	{/if}
 
 	{#if title}
-		<div class="mb-4 flex items-center justify-between border-t border-[var(--surface1)] pt-5">
-			<h1 class="title">{title}</h1>
-			{#if project}
-				<span
-					class="text-ctp-accent bg-ctp-accent/10 border-ctp-accent/20 rounded-full border px-3 py-1 text-sm font-medium"
-				>
-					{project}
-				</span>
-			{/if}
+		<div class="mb-4 border-t border-[var(--surface1)] pt-5">
+			<div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+				<h1 class="title">{title}</h1>
+				{#if project}
+					<span
+						class="text-ctp-accent bg-ctp-accent/10 border-ctp-accent/20 w-fit rounded-full border px-3 py-1 text-sm font-medium"
+					>
+						{project}
+					</span>
+				{/if}
+			</div>
 		</div>
 	{/if}
 
 	<div class="text-ctp-subtext0 mb-6 border-b border-[var(--surface1)] text-sm">
 		{#if date}
-			<p class="date pl-1">Published: {date}</p>
+			<p class="date pl-1">
+				Published: {new Date(date).toLocaleDateString()}
+				{#if edited}
+					<span class="text-ctp-overlay1">(Edited: {new Date(edited).toLocaleDateString()})</span>
+				{/if}
+			</p>
 		{/if}
 	</div>
 

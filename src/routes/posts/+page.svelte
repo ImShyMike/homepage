@@ -27,10 +27,23 @@
 							</span>
 						{/if}
 					</div>
-					<span class="text-ctp-text mb-2 text-left">{meta.description}</span>
-					<small class="text-ctp-text text-left opacity-75"
-						>{new Date(meta.date).toLocaleDateString()}</small
-					>
+					<span class="text-ctp-text text-md mb-2 text-left">{meta.description}</span>
+					<small class="text-ctp-text text-left opacity-75">
+						{new Date(meta.date).toLocaleDateString()}
+						{#if meta.edited}
+							<span class="text-ctp-subtext1">
+								(edited: {new Date(meta.edited).toLocaleDateString()})</span
+							>
+						{/if}
+						{#if meta.tags && meta.tags.length > 0}
+							<span class="text-ctp-text">-</span>
+							<span class="text-ctp-accent">
+								{#each meta.tags as tag, i (i)}
+									{tag}{i < meta.tags.length - 1 ? ', ' : ''}
+								{/each}
+							</span>
+						{/if}
+					</small>
 				</div>
 			</a>
 		{/each}

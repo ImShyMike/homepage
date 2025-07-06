@@ -1,10 +1,8 @@
 ---
 title: "Hello World but very long and cool"
 date: "2025-06-29"
+edited: "2025-7-6"
 description: "Big stuff test"
-tags:
-  - mdsvex
-  - big
 ---
 
 ## Hugeeeeeee!
