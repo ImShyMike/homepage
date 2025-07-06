@@ -1,4 +1,3 @@
-// General variables
 export const GithubData = {
 	name: 'ImShyMike',
 	repo: 'homepage'

@@ -3,6 +3,7 @@
 	import ThemeSwitcher from '$components/ThemeSwitcher.svelte';
 	import ColorSwitcher from '$components/ColorSwitcher.svelte';
 	import Footer from '$components/Footer.svelte';
+	import NotificationContainer from '$components/NotificationContainer.svelte';
 	import { WebsiteData, UmamiData } from '$lib';
 	import { page } from '$app/state';
 	import { onMount } from 'svelte';
@@ -182,4 +183,6 @@
 	</main>
 
 	<Footer />
+
+	<NotificationContainer />
 </div>

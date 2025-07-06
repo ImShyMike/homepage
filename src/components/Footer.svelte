@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { PUBLIC_COMMIT_SHA } from '$env/static/public';
 	import { GithubData, Socials } from '$lib';
+	import { notifySuccess, notifyInfo, removeNotification } from '$lib/notifications';
 	import { getUmamiStats } from '$lib/analytics';
 	import { onMount } from 'svelte';
 	import GitCommit from 'virtual:icons/tabler/git-commit';
@@ -8,6 +9,8 @@
 	import BlueskyIcon from 'virtual:icons/tabler/brand-bluesky';
 	import DiscordIcon from 'virtual:icons/tabler/brand-discord';
 	import MailIcon from 'virtual:icons/tabler/mail';
+	import LoadingIcon from 'virtual:icons/line-md/loading-twotone-loop';
+	import CheckIcon from 'virtual:icons/tabler/check';
 
 	const userUrl = `https://github.com/${GithubData.name}`;
 	const commitSha = PUBLIC_COMMIT_SHA == '$CF_PAGES_COMMIT_SHA' ? undefined : PUBLIC_COMMIT_SHA;
@@ -15,7 +18,8 @@
 	const gitCommitUrl = commitSha ? `${userUrl}/${GithubData.repo}/commit/${commitSha}` : '';
 
 	let views = $state(0);
-	let showCopiedToast = $state(false);
+	let loadingEmail = $state(false);
+	let loadingNotificationId: string | null = null;
 
 	async function sha256(str: string): Promise<string> {
 		const buffer = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
@@ -26,6 +30,15 @@
 
 	// worst email scrape protection ever :fire:
 	async function getEmail(): Promise<string> {
+		if (loadingEmail) return '';
+
+		loadingEmail = true;
+		loadingNotificationId = notifyInfo('Loading email address...', {
+			icon: LoadingIcon,
+			duration: 0,
+			dismissible: false
+		});
+
 		const prefix = '0'.repeat(Socials.email.difficulty);
 		let email = '';
 		let counter = 0;
@@ -43,6 +56,14 @@
 			}
 			counter++;
 		}
+
+		loadingEmail = false;
+
+		if (loadingNotificationId) {
+			removeNotification(loadingNotificationId);
+			loadingNotificationId = null;
+		}
+
 		return email;
 	}
 
@@ -124,10 +145,10 @@
 						const email = await getEmail();
 						if (email) {
 							navigator.clipboard.writeText(email);
-							showCopiedToast = true;
-							setTimeout(() => {
-								showCopiedToast = false;
-							}, 2000);
+							notifySuccess('Email address copied to clipboard!', {
+								icon: CheckIcon,
+								duration: 3000
+							});
 						}
 					}}
 				>
@@ -137,20 +158,3 @@
 		</div>
 	</div>
 </footer>
-
-{#if showCopiedToast}
-	<div class="fixed right-4 bottom-20 z-50 lg:bottom-4">
-		<div
-			class="bg-ctp-green text-ctp-base animate-in slide-in-from-bottom-2 fade-in flex items-center gap-2 rounded-lg px-4 py-2 shadow-lg duration-300"
-		>
-			<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-				<path
-					fill-rule="evenodd"
-					d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-					clip-rule="evenodd"
-				></path>
-			</svg>
-			<span class="font-medium">Email copied to clipboard!</span>
-		</div>
-	</div>
-{/if}
