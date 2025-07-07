@@ -2,7 +2,13 @@
 
 My own personal site on the web :D
 
+---
+
+![How the website looks](./preview.png)
+
 This is the second version of my website and now has posts and projects as well as a modern web framewok for speeed!
+
+---
 
 ## Running locally
 
