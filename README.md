@@ -2,6 +2,8 @@
 
 My own personal site on the web :D
 
+This is the second version of my website and now has posts and projects as well as a modern web framewok for speeed!
+
 ## Running locally
 
 First install the dependencies with `npm install` and then start a development server:
