@@ -20,6 +20,10 @@
 	});
 </script>
 
+<svelte:head>
+	<link rel="preload" as="image" href="https://cataas.com/cat" />
+</svelte:head>
+
 <div class="space-y-8">
 	<section class="text-center">
 		<h1 class="text-ctp-text mb-4 font-sans text-4xl font-bold">
