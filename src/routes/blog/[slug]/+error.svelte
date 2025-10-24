@@ -14,7 +14,7 @@
 	</p>
 
 	<div class="space-x-4">
-		<a href="/posts" class="text-blue hover:text-sapphire transition-colors"> ← Back to Posts </a>
+		<a href="/blog" class="text-blue hover:text-sapphire transition-colors"> ← Back to Posts </a>
 		<span class="text-overlay0">•</span>
 		<a href="/" class="text-blue hover:text-sapphire transition-colors"> Go Home </a>
 	</div>
