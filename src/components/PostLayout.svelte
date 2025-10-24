@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
+	import Giscus from './Giscus.svelte';
 	export let title = '';
 	export let date = '';
 	export let project = '';
@@ -31,7 +32,7 @@
 	{/if}
 
 	{#if title}
-		<div class="mb-4 border-t border-[var(--surface1)] pt-5">
+		<div class="mb-4">
 			<div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
 				<h1 class="title">{title}</h1>
 				{#if project}
@@ -56,9 +57,11 @@
 		{/if}
 	</div>
 
-	<div class="content">
+	<div class="content mb-6 border-b border-[var(--surface1)]">
 		<slot />
 	</div>
+
+	<Giscus />
 </article>
 
 <style>

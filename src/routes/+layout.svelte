@@ -116,10 +116,10 @@
 						{@render spacer()}
 						<a
 							data-sveltekit-preload-data
-							href="/posts"
+							href="/blog"
 							class="line hover-text-glow text-ctp-subtext1 hover:text-ctp-text px-0.5 transition-colors {isActive(
-								'/posts'
-							)}">Posts</a
+								'/blog'
+							)}">Blog</a
 						>
 					</nav>
 

@@ -13,7 +13,7 @@
 <div>
 	{#if data.repos.length > 0}
 		<div class="mx-0.5 sm:mx-1 md:mx-8">
-			<h2 class="text-ctp-text mb-6 text-center text-2xl font-semibold">GitHub Repositories</h2>
+			<h2 class="text-ctp-text mb-6 text-center text-2xl font-semibold">Projects</h2>
 			<div class="grid md:grid-cols-2 lg:grid-cols-3">
 				{#each data.repos as repo (repo.id)}
 					<GithubRepoCard {repo} posts={data.posts} />

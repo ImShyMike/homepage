@@ -45,5 +45,8 @@
 		"unplugin-icons": "^22.1.0",
 		"vite": "^6.2.6",
 		"unist-util-visit": "^5.0.0"
+	},
+	"dependencies": {
+		"@giscus/svelte": "^3.1.0"
 	}
 }
