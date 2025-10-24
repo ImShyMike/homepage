@@ -37,7 +37,7 @@
 <div class="group p-2">
 	<svelte:element
 		this={isClickable ? 'a' : 'div'}
-		href={isClickable ? `/posts/${relatedPost.slug}` : undefined}
+		href={isClickable ? `/blog/${relatedPost.slug}` : undefined}
 		class="box small-box-glow smooth-border-transition border-ctp-surface1 group-hover:border-ctp-accent flex h-full flex-row rounded-lg border p-6 no-underline transition-colors duration-200 {isClickable
 			? 'clickable cursor-pointer'
 			: ''}"

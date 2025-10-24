@@ -164,11 +164,11 @@
 						>
 						<a
 							data-sveltekit-preload-data
-							href="/posts"
+							href="/blog"
 							class="line hover-text-glow text-ctp-subtext1 hover:text-ctp-text block px-0.5 py-1 transition-colors {isActive(
-								'/posts'
+								'/blog'
 							)}"
-							onclick={() => (isMobileMenuOpen = false)}>Posts</a
+							onclick={() => (isMobileMenuOpen = false)}>Blog</a
 						>
 					</nav>
 				</div>
