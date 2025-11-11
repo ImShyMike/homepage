@@ -17,7 +17,7 @@
 	const shortHash = commitSha ? commitSha.slice(0, 7) : 'dev';
 	const gitCommitUrl = commitSha ? `${userUrl}/${GithubData.repo}/commit/${commitSha}` : '';
 
-	let views = $state(0);
+	let views = $state('0');
 	let loadingEmail = $state(false);
 	let loadingNotificationId: string | null = null;
 
@@ -71,7 +71,7 @@
 		try {
 			const stats = await getUmamiStats();
 			if (stats) {
-				views = stats.pageviews.value || 0;
+				views = stats.pageviews || '0';
 			} else {
 				console.warn('No Umami stats available');
 			}

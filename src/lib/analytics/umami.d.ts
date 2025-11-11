@@ -1,12 +1,7 @@
-export interface StatValue {
-	value: number;
-	prev: number;
-}
-
 export interface UmamiStats {
-	pageviews: StatValue;
-	visitors: StatValue;
-	visits: StatValue;
-	bounces: StatValue;
-	totaltime: StatValue;
+	pageviews: string;
+	visitors: number;
+	visits: number;
+	bounces: number;
+	totaltime: string;
 }
